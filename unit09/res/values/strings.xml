@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Unit09</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    
+    <string name="name">태연</string>
+    <string name="name1">태연</string>
+    <string name="name2">제시카</string>
+    <string name="name3">써니</string>
+    <string name="name4">티파니</string>
+    <string name="name5">효연</string>
+    <string name="name6">유리</string>
+    <string name="name7">수영</string>
+    <string name="name8">윤아</string>
+    <string name="name9">서현</string>
+    
+    <string name="number">010-1989-0309</string>
+    <string name="number1">010-1989-0309</string>
+    <string name="number2">010-1989-0418</string>
+    <string name="number3">010-1989-0515</string>
+    <string name="number4">010-1989-0801</string>
+    <string name="number5">010-1989-0922</string>
+    <string name="number6">010-1989-1205</string>
+    <string name="number7">010-1990-0210</string>
+    <string name="number8">010-1990-0530</string>
+    <string name="number9">010-1991-0628</string>
+   
+</resources>

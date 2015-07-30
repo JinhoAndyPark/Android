@@ -1,0 +1,39 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ff00ff00"
+        android:gravity="center"
+        android:padding="10dp"
+        android:singleLine="true"
+        android:text="&apos;아빠어디가&apos; 성동일 막내딸 성율, 아빠 품에 쏙 &apos;귀여워&apos;"
+        android:textColor="#ff0000ff"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:padding="15dp"
+        android:text="배우 성동일이 아이들과 함께 한 모습을 공개했다. 10일 방송된 MBC &apos;일밤-아빠 어디가&apos;에서는 다섯 아빠와 아이들이 제주도 여행을 떠나는 내용이 전파를 탔다. 성동일은 아들 준이와 함께 제주도로 가는 미션지를 받았다. 이 때 막내 딸 성율이 소파에 앉아 있는 아빠 품에 폭 안겼다. 성율은 아빠 품에서 떨어질 줄 모르고 안겨 절로 시청자들의 미소를 자아냈다. 이어 첫째 딸 성빈도 나타나 아빠 성동일에 다가가 옆에 앉았고 준도 나란히 앉아 눈길을 끌었다."
+        android:textColor="#ff000000"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffaaaaaa"
+        android:gravity="center"
+        android:padding="10dp"
+        android:singleLine="true"
+        android:text="2013-03-12 12:00"
+        android:textColor="#ff000000"
+        android:textSize="15sp" />
+
+</LinearLayout>

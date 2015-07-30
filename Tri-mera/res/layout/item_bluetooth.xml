@@ -1,0 +1,149 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <org.andlib.ui.RippleView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" >
+
+        <LinearLayout
+            android:id="@+id/btnSearchBluetooth"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#66FFFFFF"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:src="@drawable/ic_bluetooth" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="기기 검색하기"
+                android:textColor="#FF000000"
+                android:textSize="20dp" />
+        </LinearLayout>
+    </org.andlib.ui.RippleView>
+
+    <org.andlib.ui.RippleView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" >
+
+        <LinearLayout
+            android:id="@+id/btnAllowBluetooth"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#44FFFFFF"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:src="@drawable/ic_bluetooth" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="기기 검색 허용하기"
+                android:textColor="#FF000000"
+                android:textSize="20dp" />
+        </LinearLayout>
+    </org.andlib.ui.RippleView>
+
+    <org.andlib.ui.RippleView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" >
+
+        <LinearLayout
+            android:id="@+id/btnNFC"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#66FFFFFF"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:src="@drawable/ic_nfc" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NFC로 연결하기"
+                android:textColor="#FF000000"
+                android:textSize="20dp" />
+        </LinearLayout>
+    </org.andlib.ui.RippleView>
+
+    <org.andlib.ui.RippleView
+        android:id="@+id/rv_camara_connect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" >
+
+        <LinearLayout
+            android:id="@+id/btnTripod"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#44FFFFFF"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:src="@drawable/ic_tripod" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="삼각대와 연결하기"
+                android:textColor="#FF000000"
+                android:textSize="20dp" />
+        </LinearLayout>
+    </org.andlib.ui.RippleView>
+    
+    <org.andlib.ui.RippleView
+        android:id="@+id/rv_controller_start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:visibility="gone" >
+
+        <LinearLayout
+            android:id="@+id/btnControllerStart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#44FFFFFF"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="컨트롤러로 사용할 기기를 선택해주세요"
+                android:textColor="#FF000000"
+                android:textSize="20dp" />
+        </LinearLayout>
+    </org.andlib.ui.RippleView>
+
+</LinearLayout>

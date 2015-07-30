@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <org.andlib.ui.RippleView
+        android:id="@+id/rvAppMode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" >
+
+        <org.andlib.ui.ImageButton
+            android:id="@+id/btnAppMode"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/main_btn_01" />
+    </org.andlib.ui.RippleView>
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_weight="0"
+        android:background="#FF97e9bf" />
+
+    <org.andlib.ui.RippleView
+        android:id="@+id/rvTriMode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" >
+
+        <org.andlib.ui.ImageButton
+            android:id="@+id/btnTriMode"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/main_btn_02" />
+    </org.andlib.ui.RippleView>
+
+</LinearLayout>

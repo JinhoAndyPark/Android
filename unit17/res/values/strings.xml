@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">unit17</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="text">text</string>
+    <string name="add">add</string>
+    <string name="delete">delete</string>
+    <string name="edit">edit</string>
+    <string name="forward">forward</string>
+    <string name="turn_left">turn_left</string>
+</resources>

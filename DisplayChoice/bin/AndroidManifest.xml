@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.displaychoice"
+    android:versionCode="1"
+    android:versionName="1.0" >
+    <!-- android:sharedUserId="android.uid.system" > 시스템 권한 -->
+    
+    <uses-permission
+        android:name="android.permission.SYSTEM_ALERT_WINDOW" /> <!-- WindowManager의 addView()를 사용하기 위한 퍼미션 -->
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="18" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/btn_image"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        
+        <service
+            android:name=".AlwaysOnTop"
+            android:enabled="true" >
+        </service>
+        
+        <service
+            android:name=".FramebufferSend"
+            android:enabled="true" >
+        </service>
+        
+        <activity
+            android:name=".AppListActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED" />
+                
+                <category android:name="android.intent.category.LAUNCHER" /> <!-- 시스템 권한 주고나면 이 부분 없애기 -->
+            </intent-filter>
+            
+            <meta-data android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED"
+                android:resource="@xml/accessory_filter" />
+            
+        </activity>
+        
+    </application>
+
+</manifest>

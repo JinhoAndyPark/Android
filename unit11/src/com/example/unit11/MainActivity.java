@@ -1,0 +1,144 @@
+package com.example.unit11;
+import kr.robomation.physical.Albert;
+
+import org.roboid.robot.Device;
+import org.roboid.robot.Robot;
+import org.smartrobot.android.RobotActivity;
+
+import android.app.Activity;
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import android.os.Bundle;
+import android.os.Vibrator;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.widget.TextView;
+
+public class MainActivity extends RobotActivity implements SensorEventListener
+{
+
+   private TextView textView;
+    private SensorManager sensorManager;
+    private float[] accelerometer = new float[3];
+    private boolean touchDown;
+    private Device leftWheelDevice;
+    private Device rightWheelDevice;
+    private Device leftProximityDevice;
+    private Device rightProximityDevice;
+    private Vibrator vibrator;
+   
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_main);
+
+      textView = (TextView)findViewById(R.id.text);
+        sensorManager = (SensorManager)getSystemService(Context.SENSOR_SERVICE);
+        Sensor accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_FASTEST);
+        vibrator = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
+   }
+
+    @Override
+    protected void onDestroy()
+    {
+        super.onDestroy();
+        sensorManager.unregisterListener(this);
+    }
+   
+    @Override
+    public void onInitialized(Robot robot)
+    {
+        super.onInitialized(robot);
+        leftWheelDevice = robot.findDeviceById(Albert.EFFECTOR_LEFT_WHEEL);
+        rightWheelDevice = robot.findDeviceById(Albert.EFFECTOR_RIGHT_WHEEL);
+        leftProximityDevice = robot.findDeviceById(Albert.SENSOR_LEFT_PROXIMITY);
+        rightProximityDevice = robot.findDeviceById(Albert.SENSOR_RIGHT_PROXIMITY);
+
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event)
+    {
+        switch(event.getAction())
+        {
+        case MotionEvent.ACTION_DOWN:
+            touchDown = true;
+            break;
+        case MotionEvent.ACTION_UP:
+            touchDown = false;
+            break;
+        }
+        return super.onTouchEvent(event);
+    }
+    
+    @Override
+    public void onSensorChanged(SensorEvent event)
+    {
+        switch(event.sensor.getType())
+        {
+        case Sensor.TYPE_ACCELEROMETER:
+            accelerometer[0] = event.values[0];
+            accelerometer[1] = event.values[1];
+            accelerometer[2] = event.values[2];
+            textView.setText(event.values[0] + ", " + event.values[1] + ", " + event.values[2]);
+            break;
+        }
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy)
+    {
+    }
+    
+    @Override
+    public void onExecute()
+    {
+        if(touchDown == false)
+        {
+            leftWheelDevice.write(0);
+            rightWheelDevice.write(0);
+            return;
+        }
+
+        int h = (int)(accelerometer[1] * 24);
+        if(h > 100) h = 100;
+        else if(h < -100) h = -100;
+
+        int v = (int)(accelerometer[0] * 24) - 127;
+        if(v > 100) v = 100;
+        else if(v < -100) v = -100;
+
+        int leftWheel = -v / 2 + h / 2;
+        int rightWheel = -v / 2 - h / 2;
+
+        leftWheelDevice.write(leftWheel);
+        rightWheelDevice.write(rightWheel);
+        
+        if(leftProximityDevice.read() > 50 || rightProximityDevice.read() > 50)
+            vibrator.vibrate(50);
+    }
+    
+   @Override
+   public boolean onCreateOptionsMenu(Menu menu) {
+      // Inflate the menu; this adds items to the action bar if it is present.
+      getMenuInflater().inflate(R.menu.main, menu);
+      return true;
+   }
+
+   @Override
+   public boolean onOptionsItemSelected(MenuItem item) {
+      // Handle action bar item clicks here. The action bar will
+      // automatically handle clicks on the Home/Up button, so long
+      // as you specify a parent activity in AndroidManifest.xml.
+      int id = item.getItemId();
+      if (id == R.id.action_settings) {
+         return true;
+      }
+      return super.onOptionsItemSelected(item);
+   }
+}
